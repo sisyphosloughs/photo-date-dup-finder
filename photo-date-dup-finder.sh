@@ -57,7 +57,7 @@ process_file() {
     # Processes image if it is an actual image or bitmap file
     if file "$image" | grep -qE 'image|bitmap'; then
         # Extracts timestamp using exiftool
-        timestamp=$(exiftool -SubSecCreateDate -d %s%f -p '$SubSecCreateDate' "$image")
+        timestamp=$(exiftool -CreateDate -d %s%f -p '$CreateDate' "$image")
 
         # Appends the image and its timestamp to log file
         echo "# $timestamp \"$image\"" >> "$IMAGE_DATES"
